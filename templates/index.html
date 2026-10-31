@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOBIKE - Toko Sepeda</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+ 
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="/" class="brand">
+                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo">
+                <span>VELOBIKE</span>
+            </a>
+
+            <div class="nav-menu">
+                <a href="#home">Beranda</a>
+                <a href="#produk">Produk</a>
+                <a href="#tentang">Tentang Kami</a>
+            </div>
+
+            <button class="cart-button" onclick="toggleCart()">
+                Keranjang (<span id="cart-count">0</span>)
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="small-title">SELAMAT DATANG DI VELOBIKE</p>
+                <h1>Temukan Sepeda<br>Impianmu di Sini</h1>
+                <p>
+                    Berbagai pilihan sepeda berkualitas untuk menemani
+                    aktivitas dan perjalananmu setiap hari.
+                </p>
+                <a href="#produk" class="main-button">Lihat Produk</a>
+            </div>
+
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=900"
+                     alt="Sepeda">
+            </div>
+        </section>
+
+        <section class="products-section" id="produk">
+            <div class="section-heading">
+                <p class="small-title">KOLEKSI KAMI</p>
+                <h2>Daftar Sepeda</h2>
+                <p>Pilih sepeda sesuai kebutuhanmu.</p>
+            </div>
+
+            <div class="filter-buttons">
+                <button onclick="filterProducts('Semua')">Semua</button>
+                <button onclick="filterProducts('Mountain Bike')">Mountain Bike</button>
+                <button onclick="filterProducts('Road Bike')">Road Bike</button>
+                <button onclick="filterProducts('City Bike')">City Bike</button>
+            </div>
+
+            <div class="product-list" id="product-list"></div>
+        </section>
+
+        <section class="about-section" id="tentang">
+            <h2>Tentang VELOBIKE</h2>
+            <p>
+                VELOBIKE merupakan toko sepeda yang menyediakan berbagai
+                pilihan sepeda untuk kebutuhan olahraga, perjalanan,
+                maupun aktivitas sehari-hari. Kami berusaha memberikan
+                produk berkualitas dengan harga yang terjangkau.
+            </p>
+        </section>
+    </main>
+
+    <div class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <h2>Keranjang Belanja</h2>
+            <button onclick="toggleCart()">X</button>
+        </div>
+        <div id="cart-items"></div>
+        <h3>Total: <span id="cart-total">Rp0</span></h3>
+        <button class="main-button" onclick="checkout()">Checkout</button>
+    </div>
+
+    <footer>
+        <p>© 2026 VELOBIKE | Toko Sepeda Pilihan</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
